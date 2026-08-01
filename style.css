@@ -1,0 +1,1295 @@
+/* ===================================
+   RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+
+    background:linear-gradient(180deg,#080014,#140027,#1f0038);
+    color:#fff;
+    overflow:hidden;
+    touch-action:manipulation;
+
+}
+
+/* ===================================
+   STARS
+=================================== */
+
+#stars{
+
+    position:fixed;
+    inset:0;
+    background:url("https://www.transparenttextures.com/patterns/stardust.png");
+    animation:moveStars 80s linear infinite;
+    z-index:-5;
+
+}
+
+@keyframes moveStars{
+
+from{
+background-position:0 0;
+}
+
+to{
+background-position:0 1500px;
+}
+
+}
+
+/* ===================================
+   PETALS & HEARTS
+=================================== */
+
+#petals,
+#hearts{
+
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-4;
+
+}
+
+/* ===================================
+   GIFT SCREEN
+=================================== */
+
+#giftScreen{
+
+width:100%;
+height:100dvh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+}
+
+/* ===================================
+   PREMIUM GIFT
+=================================== */
+
+/* ==========================
+   PREMIUM 3D GIFT - PART 1
+========================== */
+
+.gift-container{
+    position:relative;
+    width:260px;
+    height:260px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    perspective:1200px;
+}
+
+.gift3d{
+    position:relative;
+    width:170px;
+    height:170px;
+    transform-style:preserve-3d;
+    animation:giftFloat 3s ease-in-out infinite;
+}
+
+/* Shadow */
+
+.gift-shadow{
+    position:absolute;
+    bottom:-35px;
+    left:50%;
+    transform:translateX(-50%);
+    width:170px;
+    height:35px;
+    background:radial-gradient(circle,
+        rgba(255,120,220,.45),
+        transparent 70%);
+    filter:blur(12px);
+    animation:shadowPulse 3s ease-in-out infinite;
+}
+
+/* ==========================
+   Gift Body
+========================== */
+
+.gift-body{
+    position:absolute;
+    bottom:0;
+    width:170px;
+    height:120px;
+    transform-style:preserve-3d;
+}
+
+/* Front Face */
+
+.gift-body .front{
+    position:absolute;
+    width:170px;
+    height:120px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff7abf,
+            #ff2b72 55%,
+            #b40042
+        );
+
+    border-radius:12px;
+
+    box-shadow:
+        inset 0 3px 8px rgba(255,255,255,.35),
+        inset 0 -8px 18px rgba(0,0,0,.28),
+        0 18px 28px rgba(0,0,0,.45);
+}
+
+/* Left Face */
+
+.gift-body .left{
+    position:absolute;
+    left:-18px;
+    top:10px;
+
+    width:18px;
+    height:100px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #b40042,
+            #8c0034
+        );
+
+    transform:
+        rotateY(-90deg);
+
+    transform-origin:right;
+}
+
+/* Right Highlight */
+
+.gift-body .right{
+    position:absolute;
+    right:0;
+
+    width:12px;
+    height:120px;
+
+    background:
+        rgba(255,255,255,.15);
+
+    border-radius:0 12px 12px 0;
+}
+
+/* ==========================
+   Gift Lid
+========================== */
+
+.gift-lid{
+
+    position:absolute;
+
+    top:20px;
+
+    left:-5px;
+
+    width:180px;
+
+    height:45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff98cb,
+            #ff3f88,
+            #bf0046
+        );
+
+    border-radius:12px;
+
+    transform-origin:left center;
+
+    transition:1s ease;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.35),
+        inset 0 2px 5px rgba(255,255,255,.35);
+
+    z-index:5;
+
+}
+/* ==========================
+   PREMIUM 3D GIFT - PART 2
+========================== */
+
+/* Gold Ribbon */
+
+.ribbon-v{
+    position:absolute;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    width:22px;
+    height:100%;
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff5a0 0%,
+            #ffd54f 25%,
+            #ffb300 50%,
+            #ffd54f 75%,
+            #fff5a0 100%
+        );
+
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,.5),
+        inset 0 -2px 4px rgba(0,0,0,.25);
+}
+
+.ribbon-h{
+    position:absolute;
+    top:14px;
+    left:0;
+    width:100%;
+    height:18px;
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff5a0,
+            #ffd54f,
+            #ffb300,
+            #ffd54f,
+            #fff5a0
+        );
+
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,.45),
+        inset 0 -2px 4px rgba(0,0,0,.25);
+}
+
+/* ==========================
+   Premium Bow
+========================== */
+
+.bow{
+    position:absolute;
+    top:-18px;
+    width:42px;
+    height:42px;
+
+    border:8px solid #ffd54f;
+    border-radius:50%;
+
+    background:transparent;
+}
+
+.bow-left{
+    left:45px;
+    transform:rotate(-35deg);
+}
+
+.bow-right{
+    right:45px;
+    transform:rotate(35deg);
+}
+
+.knot{
+    position:absolute;
+    top:-2px;
+    left:50%;
+    transform:translateX(-50%);
+    width:22px;
+    height:22px;
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #fff6a8,
+        #ffc107,
+        #ff9800
+    );
+
+    box-shadow:
+        0 0 10px rgba(255,210,0,.8);
+}
+
+/* ==========================
+   Magic Light
+========================== */
+
+.magic-light{
+
+    position:absolute;
+
+    left:50%;
+    top:55%;
+
+    transform:translate(-50%,-50%);
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(255,255,180,.7),
+            rgba(255,120,220,.25),
+            transparent 70%);
+
+    filter:blur(22px);
+
+    animation:magicGlow 2.5s ease-in-out infinite;
+
+    z-index:-1;
+
+}
+
+/* ==========================
+   Floating Sparkles
+========================== */
+
+.spark{
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 12px white,
+        0 0 25px gold;
+
+    animation:sparkMove 2.5s linear infinite;
+
+}
+
+.spark1{top:-10px;left:20px;}
+.spark2{top:10px;right:-8px;}
+.spark3{left:-15px;top:60px;}
+.spark4{right:-12px;top:90px;}
+.spark5{left:50%;top:-20px;}
+.spark6{left:70%;bottom:-15px;}
+
+/* ==========================
+   Animations
+========================== */
+
+@keyframes magicGlow{
+
+0%,100%{
+    transform:translate(-50%,-50%) scale(.9);
+    opacity:.7;
+}
+
+50%{
+    transform:translate(-50%,-50%) scale(1.15);
+    opacity:1;
+}
+
+}
+
+@keyframes sparkMove{
+
+0%,100%{
+    transform:translateY(0) scale(.8);
+    opacity:.4;
+}
+
+50%{
+    transform:translateY(-18px) scale(1.3);
+    opacity:1;
+}
+
+}
+
+@keyframes shadowPulse{
+
+0%,100%{
+    transform:translateX(-50%) scale(.9);
+    opacity:.45;
+}
+
+50%{
+    transform:translateX(-50%) scale(1.2);
+    opacity:.8;
+}
+
+}
+/* ==========================
+   PREMIUM 3D GIFT - PART 3
+========================== */
+
+/* Lid Opening */
+
+.gift-lid.open{
+
+    transform:
+        translateY(-60px)
+        rotateX(-145deg)
+        rotateZ(-12deg);
+
+    opacity:.98;
+
+}
+
+/* Gift Burst */
+
+.gift3d.open{
+
+    animation:giftBurst 1s ease forwards;
+
+}
+
+@keyframes giftBurst{
+
+0%{
+    transform:scale(1) rotate(0deg);
+    opacity:1;
+}
+
+30%{
+    transform:scale(1.08) rotate(-3deg);
+}
+
+60%{
+    transform:scale(1.15) rotate(3deg);
+}
+
+100%{
+    transform:scale(0) rotate(15deg);
+    opacity:0;
+}
+
+}
+
+/* Floating Animation */
+
+@keyframes giftFloat{
+
+0%,100%{
+    transform:
+        translateY(0)
+        rotateY(-8deg);
+}
+
+25%{
+    transform:
+        translateY(-10px)
+        rotateY(0deg);
+}
+
+50%{
+    transform:
+        translateY(-16px)
+        rotateY(8deg);
+}
+
+75%{
+    transform:
+        translateY(-10px)
+        rotateY(0deg);
+}
+
+}
+
+/* Flash Screen */
+
+#flash{
+
+    position:fixed;
+    inset:0;
+
+    background:white;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+}
+
+#flash.show{
+
+    animation:magicFlash .8s ease;
+
+}
+
+@keyframes magicFlash{
+
+0%{
+    opacity:0;
+}
+
+20%{
+    opacity:1;
+}
+
+100%{
+    opacity:0;
+}
+}
+
+/* Gift Title */
+
+.gift-title{
+
+    margin-top:40px;
+
+    font-size:38px;
+
+    color:#ffd8ff;
+
+    text-shadow:
+        0 0 10px hotpink,
+        0 0 20px deeppink;
+
+}
+
+.gift-text{
+
+    margin-top:12px;
+
+    font-size:20px;
+
+    color:#fff;
+
+    letter-spacing:1px;
+
+    opacity:.9;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.gift-container{
+
+    transform:scale(.82);
+
+}
+
+.gift-title{
+
+    font-size:28px;
+
+}
+
+.gift-text{
+
+    font-size:17px;
+
+}
+
+}
+/* ===================================
+   STORY
+=================================== */
+
+#story{
+    display:none;
+    width:100%;
+    height:100dvh;
+}
+
+.page{
+    width:100%;
+    height:100dvh;
+
+    display:none;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.page.active{
+    display:flex;
+}
+
+/* ===================================
+   PAGE ANIMATIONS
+=================================== */
+
+.page.zoom.active{
+    animation:zoomIn .9s ease;
+}
+
+.page.slide.active{
+    animation:slideRight .9s ease;
+}
+
+.page.flip.active{
+    animation:flipPage .9s ease;
+}
+
+.page.glow.active{
+    animation:glowPage 1s ease;
+}
+
+@keyframes zoomIn{
+
+from{
+opacity:0;
+transform:scale(.8);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+@keyframes slideRight{
+
+from{
+opacity:0;
+transform:translateX(120px);
+}
+
+to{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+@keyframes flipPage{
+
+from{
+opacity:0;
+transform:rotateY(90deg);
+}
+
+to{
+opacity:1;
+transform:rotateY(0);
+}
+
+}
+
+@keyframes glowPage{
+
+from{
+opacity:0;
+transform:scale(.9);
+filter:blur(8px);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+filter:blur(0);
+}
+
+}
+
+/* ===================================
+   HEADINGS
+=================================== */
+
+h1,
+h2{
+
+color:#ffd8ff;
+
+margin-bottom:18px;
+
+text-shadow:
+0 0 10px rgba(255,120,220,.4);
+
+}
+
+.message,
+.page p,
+.final-msg{
+
+max-width:720px;
+
+font-size:20px;
+
+line-height:1.7;
+
+margin:20px;
+
+}
+
+/* ===================================
+   PHOTOS
+=================================== */
+
+.photo{
+
+width:280px;
+height:350px;
+
+object-fit:cover;
+
+border-radius:22px;
+
+border:4px solid white;
+
+box-shadow:
+
+0 0 25px hotpink,
+0 0 45px rgba(255,105,180,.35);
+
+margin:20px 0;
+
+transition:.4s;
+
+animation:photoPop .8s ease;
+
+cursor:pointer;
+
+}
+
+.photo:hover{
+
+transform:
+scale(1.05)
+rotate(1deg);
+
+box-shadow:
+
+0 0 35px hotpink,
+0 0 60px deeppink;
+
+}
+
+@keyframes photoPop{
+
+0%{
+
+opacity:0;
+
+transform:
+scale(.85);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+scale(1);
+
+}
+
+}
+/* ===================================
+   NEXT BUTTON
+=================================== */
+
+.next-btn{
+
+    margin-top:25px;
+    padding:14px 36px;
+
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#ff4fd8,#8b5cff);
+
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+        0 0 18px rgba(255,80,200,.5);
+
+}
+
+.next-btn:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.08);
+
+    box-shadow:
+        0 0 20px hotpink,
+        0 0 40px deeppink;
+
+}
+
+.next-btn:active{
+
+    transform:scale(.96);
+
+}
+
+/* ===================================
+   LETTER
+=================================== */
+
+.letter{
+
+    max-width:700px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+}
+
+.letter p{
+
+    margin:14px 0;
+
+    line-height:1.8;
+
+}
+
+.letter h3{
+
+    margin-top:20px;
+
+    color:#ffd4ff;
+
+}
+
+/* ===================================
+   FINAL PAGE
+=================================== */
+
+.final-title{
+
+    font-size:46px;
+
+    color:#fff;
+
+    animation:finalGlow 2s ease-in-out infinite alternate;
+
+}
+
+.final-msg{
+
+    color:#fff;
+
+    text-shadow:
+        0 0 10px rgba(255,120,220,.4);
+
+}
+
+@keyframes finalGlow{
+
+from{
+
+text-shadow:
+0 0 10px hotpink,
+0 0 20px hotpink;
+
+}
+
+to{
+
+text-shadow:
+0 0 20px #ff6fe7,
+0 0 40px deeppink,
+0 0 70px #ff55d9;
+
+}
+
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:768px){
+
+.page{
+
+padding:18px;
+
+}
+
+.photo{
+
+width:220px;
+height:280px;
+
+}
+
+.message,
+.page p,
+.final-msg{
+
+font-size:17px;
+
+line-height:1.6;
+
+}
+
+.next-btn{
+
+font-size:16px;
+
+padding:12px 28px;
+
+}
+
+.final-title{
+
+font-size:32px;
+
+}
+
+.letter{
+
+padding:22px;
+
+}
+
+.gift-box{
+
+transform:scale(.85);
+
+}
+
+}
+/* ===================================
+   FLOWER RAIN
+=================================== */
+
+.petal{
+
+    position:fixed;
+
+    top:-60px;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    font-size:22px;
+
+    animation:flowerRain linear forwards;
+
+    user-select:none;
+
+}
+
+@keyframes flowerRain{
+
+0%{
+
+transform:
+translateX(0)
+translateY(-60px)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+25%{
+
+transform:
+translateX(calc(var(--drift) * .3))
+translateY(25vh)
+rotate(90deg);
+
+}
+
+50%{
+
+transform:
+translateX(calc(var(--drift) * .6))
+translateY(50vh)
+rotate(180deg);
+
+}
+
+75%{
+
+transform:
+translateX(calc(var(--drift) * .9))
+translateY(75vh)
+rotate(270deg);
+
+}
+
+100%{
+
+transform:
+translateX(var(--drift))
+translateY(110vh)
+rotate(540deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ===================================
+   FLOATING HEARTS
+=================================== */
+
+.heart{
+
+position:fixed;
+
+bottom:-40px;
+
+font-size:22px;
+
+pointer-events:none;
+
+animation:heartFloat linear forwards;
+
+z-index:9998;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:
+translateY(0)
+scale(.6);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-110vh)
+scale(1.3);
+
+opacity:0;
+
+}
+
+}
+
+/* ===================================
+   SPARKLES
+=================================== */
+
+.sparkle{
+
+position:fixed;
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:#fff;
+
+box-shadow:
+0 0 10px #fff,
+0 0 20px gold,
+0 0 30px gold;
+
+pointer-events:none;
+
+animation:sparkleAnim 1.5s linear forwards;
+
+z-index:9999;
+
+}
+
+@keyframes sparkleAnim{
+
+0%{
+
+transform:
+scale(0)
+translateY(0);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+scale(1.5)
+translateY(-150px);
+
+opacity:0;
+
+}
+
+}
+
+/* ===================================
+   GIFT MAGIC GLOW
+=================================== */
+
+.gift3d.magic{
+
+animation:giftMagic .9s forwards;
+
+}
+
+@keyframes giftMagic{
+
+0%{
+
+transform:
+scale(1)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+30%{
+
+transform:
+scale(1.1)
+rotate(-8deg);
+
+}
+
+60%{
+
+transform:
+scale(1.2)
+rotate(8deg);
+
+}
+
+100%{
+
+transform:
+scale(0)
+rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ===================================
+   CONFETTI
+=================================== */
+
+.confetti{
+
+position:fixed;
+
+top:-20px;
+
+pointer-events:none;
+
+z-index:9999;
+
+animation:confettiFall 4s linear forwards;
+
+}
+
+@keyframes confettiFall{
+
+0%{
+
+transform:
+translateY(-20px)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(110vh)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ===================================
+   SMOOTH PAGE FADE
+=================================== */
+
+.page{
+
+transition:
+opacity .6s ease,
+transform .6s ease;
+
+}
+
+/* ===================================
+   SCROLLBAR
+=================================== */
+
+::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#ff5ed9;
+
+border-radius:10px;
+
+}
